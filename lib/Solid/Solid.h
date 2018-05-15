@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <string>
+#include <sstream>
+#include <fstream>
 
 #include "../Utils/Utils.h"
 #include "../Vector3D/Vector3D.h"
@@ -19,9 +21,10 @@ public:
   Solid ();
   Solid ( int steps );
   virtual ~Solid ();
-  virtual void read( std::string fileName );
-  virtual generate() =0;
+  void read( std::string fileName );
+  virtual void generate() =0;
   void draw();
+  void drawInitialPoints();
   void createTriangles( Line previous_line , Line current_line );
 };
 

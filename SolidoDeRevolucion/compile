@@ -1,1 +1,1 @@
-g++ -o Revolucion *.cpp */*.cpp ../lib/*/*.cpp ../lib/*/*.hxx -lGL -lGLU -lglut
+g++ -o Rev *.cpp */*.cpp ../lib/*/*.cpp ../lib/Vector3D/Vector3D.h -lGL -lGLU -lglut

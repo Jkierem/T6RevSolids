@@ -1,20 +1,30 @@
 #include "Solid.h"
+#include <iostream>
 
-Solid (){
+Solid::Solid (){
   this->steps = 10;
 }
 
-Solid ( int steps ){
+Solid::Solid ( int steps ){
   this->steps = steps;
 }
 
-virtual ~Solid (){}
+Solid::~Solid (){}
 
-void read( std::string fileName ){
-
+void Solid::read( std::string fileName ){
+  std::string line = "";
+  std::ifstream file(fileName);
+  while( getline(file,line) && line != "f" ){
+    std::stringstream sline(line);
+    float x,y;
+    sline >> x >> y;
+    Vector v(x,y,0);
+    this->vertices.push_back(v);
+    std::cout << v.toString() << std::endl;
+  }
 }
 
-void draw(){
+void Solid::draw(){
   for (int i = 0; i < gen_vertices.size() ; i++) {
     if( i == gen_vertices.size() - 1){
       createTriangles( gen_vertices[i] , gen_vertices[0] );
@@ -24,7 +34,15 @@ void draw(){
   }
 }
 
-void createTriangles( Line previous_line , Line current_line ){
+void Solid::drawInitialPoints(){
+  glBegin(GL_LINE_STRIP);
+    for ( int i = 0; i < this->vertices.size() ; i++ ) {
+      Utils::vertex( this->vertices[i] );
+    }
+  glEnd();
+}
+
+void Solid::createTriangles( Line previous_line , Line current_line ){
   //Triangulos que miran hacia abajo
   for (int v = 0; v < previous_line.size()-1 ; v++) {
     Vector c1 = current_line[v].vectorSub(previous_line[v]);

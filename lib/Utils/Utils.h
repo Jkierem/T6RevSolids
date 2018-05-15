@@ -10,6 +10,7 @@
 namespace Utils {
   void translate( Vector t );
   void rotate( Vector r );
+  void rotate( float angle , Vector axis );
   void scale( Vector s );
   void setNormal( Vector n );
   void vertex( Vector v );

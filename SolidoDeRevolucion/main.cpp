@@ -4,10 +4,8 @@
 
 #include "./Revolucion/RevSolid.h"
 
-typedef RevSolid Solid;
-
-Solid* solid = new Solid();
-std::string fileName = "curvaAbierta.in";
+Solid* solid = new RevSolid();
+std::string fileName = "../res/curvaAbierta.in";
 
 float timeout = 1000/60;
 
@@ -18,15 +16,24 @@ void Timer( int i ){
 
 void init(){
   glClearColor(0.0, 0.0, 0.0, 1.0); // Set background (clear) color to black
-  glEnable( GL_DEPTH_TEST );
-  glEnable( GL_LIGHTING );
-  solid->read("./res/");
+  glViewport(0, 0, 600, 600);
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+  gluOrtho2D(0, 600, 0, 600);
+  glMatrixMode(GL_MODELVIEW);
+
+  solid->read(fileName);
   solid->generate();
   glutTimerFunc(0, Timer, 0);
 }
 
 void draw(){
-  solid->draw();
+  glColor3f(1,1,1);
+  solid->drawInitialPoints();
+
+  glColor3f(1,0,0);
+  glTranslatef(0,0,-10);
+  glutWireSphere( 5 , 20 ,20);
 }
 
 void display(){
@@ -36,12 +43,11 @@ void display(){
   glutSwapBuffers();
 }
 
-void reshape( int width , int height ){
-  glViewport(0, 0, width, height);
+void reshape( int w , int h ){
+  glViewport(0, 0, w, h);
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  gluPerspective(60.0f, (GLfloat)width/(GLfloat)height, 1.0f, 6000.0f);
-  glMatrixMode(GL_MODELVIEW);
+  gluOrtho2D(0, w, 0, h);
 }
 
 int main(int argc, char *argv[]) {
