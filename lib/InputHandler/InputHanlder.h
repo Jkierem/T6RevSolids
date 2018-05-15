@@ -17,7 +17,6 @@ public:
   virtual ~InputHandler ();
 
   bool onKeyPress( unsigned char key , int x , int y );
-  std::string exec(const char* cmd);
 };
 
 typedef InputHandler Input;
