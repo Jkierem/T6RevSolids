@@ -19,7 +19,7 @@ void Utils::scale( Vector s ){
 }
 
 void Utils::setColor( Vector color ){
-  glColor3f( color.getX()/255 , color.getY()/255 , color.getZ()/255 );
+  glColor3i( color.getX() , color.getY() , color.getZ() );
 }
 
 void Utils::setNormal( Vector n ){

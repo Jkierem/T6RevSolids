@@ -1,1 +1,1 @@
-g++ -o Rev main.cpp ../lib/*/*.cpp ../lib/Vector3D/Vector3D.h -lGL -lGLU -lglut
+g++ -std=c++17 -o Rev main.cpp ../lib/*/*.cpp ../lib/Vector3D/Vector3D.h -lGL -lGLU -lglut

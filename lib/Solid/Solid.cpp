@@ -63,9 +63,10 @@ void Solid::createTriangles( Line previous_line , Line current_line ){
     Vector c1 = current_line[v].vectorSub(previous_line[v]);
     Vector c2 = previous_line[v+1].vectorSub(previous_line[v]);
     Vector n = c2.cross(c1);
-    Utils::setColor(this->color);
     Utils::setNormal(n.normalize());
+    Utils::setColor(this->color);
     glBegin(GL_TRIANGLES);
+      Utils::setColor(this->color);
       Utils::vertex( current_line[v] );
       Utils::vertex( previous_line[v] );
       Utils::vertex( previous_line[v+1] );
@@ -77,7 +78,9 @@ void Solid::createTriangles( Line previous_line , Line current_line ){
     Vector c2 = previous_line[v+1].vectorSub( current_line[v+1] );;
     Vector n = c1.cross(c2);
     Utils::setNormal(n.normalize());
+    Utils::setColor(this->color);
     glBegin(GL_TRIANGLES);
+      Utils::setColor(this->color);
       Utils::vertex( current_line[v] );
       Utils::vertex( current_line[v+1] );
       Utils::vertex( previous_line[v+1] );
