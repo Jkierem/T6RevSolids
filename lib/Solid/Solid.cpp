@@ -22,12 +22,12 @@ void Solid::read( std::string fileName ){
   }
 }
 
-void Solid::draw(){
+void Solid::draw(bool closed){
   for (int i = 0; i < gen_vertices.size() ; i++) {
-    if( i == gen_vertices.size() - 1){
-      createTriangles( gen_vertices[i] , gen_vertices[0] );
-    }else{
+    if( i != gen_vertices.size() - 1 ){
       createTriangles( gen_vertices[i] , gen_vertices[i+1] );
+    }else if(closed){
+      createTriangles( gen_vertices[i] , gen_vertices[0] );
     }
   }
 }

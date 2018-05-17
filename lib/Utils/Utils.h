@@ -4,6 +4,7 @@
 #include <GL/glut.h>
 #include <GL/freeglut.h>
 #include <GL/gl.h>
+#include <iostream>
 
 #include "../Vector3D/Vector3D.h"
 
@@ -15,6 +16,7 @@ namespace Utils {
   void setNormal( Vector n );
   void vertex( Vector v );
   void setCamera( Vector eye , Vector center , Vector up );
+  void printControls();
 } /* Utils */
 
 #endif

@@ -22,6 +22,17 @@ void BarSolid::generate() {
     v = v.add(this->path[0]);
   }
   this->gen_vertices.push_back(nextLine);
+  for( int i = 1 ; i < this->path.size() ; i++ ){
+    Vector t = this->path[i].vectorSub(this->path[i-1]);
+    for( auto& v : nextLine ){
+      v = v.add(t);
+    }
+    this->gen_vertices.push_back(nextLine);
+  }
+}
+
+void BarSolid::draw(){
+  Solid::draw(false);
 }
 
 void BarSolid::drawPath(){

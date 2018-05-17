@@ -1,1 +1,1 @@
-g++ -o Bar *.cpp */*.cpp ../lib/*/*.cpp ../lib/Vector3D/Vector3D.h -lGL -lGLU -lglut
+g++ -o Bar main.cpp ../lib/*/*.cpp ../lib/Vector3D/Vector3D.h -lGL -lGLU -lglut

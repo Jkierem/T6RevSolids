@@ -2,7 +2,7 @@
 #include <GL/freeglut.h>
 #include <GL/gl.h>
 
-#include "./Revolucion/RevSolid.h"
+#include "../lib/Revolucion/RevSolid.h"
 #include "../lib/Utils/Utils.h"
 
 RevSolid* solid = new RevSolid(20,CLOSED);
@@ -15,7 +15,7 @@ Vector up(0,1,0);
 Vector rot(0,0,0);
 
 float timeout = 1000/60;
-static GLfloat light0_position[] = {1.0,1.0,1.0,0.0};
+static GLfloat light0_position[] = {150.0,40.0,0.0,0.0};
 
 void draw();
 void init();
@@ -25,6 +25,7 @@ void Timer(int i);
 void keyboard( unsigned char key , int x , int y );
 
 int main(int argc, char *argv[]) {
+  Utils::printControls();
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
   glutInitWindowSize(640, 480);
@@ -42,6 +43,7 @@ void draw(){
   Utils::setCamera( eye , center , up);
   Utils::rotate(rot);
   solid->draw();
+  //glutSolidSphere(5,10,10);
 }
 
 void init(){

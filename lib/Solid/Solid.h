@@ -23,7 +23,7 @@ public:
   virtual ~Solid ();
   void read( std::string fileName );
   virtual void generate() =0;
-  void draw();
+  void draw(bool closed=true);
   void drawInitialPoints();
   void drawGeneratedPoints();
   void createTriangles( Line previous_line , Line current_line );

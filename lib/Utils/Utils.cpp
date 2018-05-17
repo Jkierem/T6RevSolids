@@ -33,3 +33,10 @@ void Utils::setCamera( Vector eye , Vector center , Vector up ){
     up.getX() , up.getY() , up.getZ()
   );
 }
+
+void Utils::printControls(){
+  std::cout << "[W , S]: Rotacion en el eje X." << std::endl;
+  std::cout << "[A , D]: Rotacion en el eje Y." << std::endl;
+  std::cout << "[Q , E]: Rotacion en el eje Z." << std::endl;
+  std::cout << "R: Resetear rotacion." << std::endl;
+}

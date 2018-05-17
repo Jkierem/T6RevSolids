@@ -32,6 +32,7 @@ void RevSolid::generate(){
       }
     }
     Vector t( translation->getX() * -1,0,0);
+    t = t.add(Vector(5,0,0));
     for( auto& vertex : nextLine ){
       vertex = vertex.add(t);
     }

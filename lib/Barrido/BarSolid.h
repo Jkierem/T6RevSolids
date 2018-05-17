@@ -12,6 +12,7 @@ public:
   virtual ~BarSolid();
   void read(std::string solidFile, std::string pathFile);
   void generate() override;
+  void draw();
   void drawPath();
 };
 
