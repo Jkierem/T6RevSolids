@@ -14,6 +14,7 @@ namespace Utils {
   void scale( Vector s );
   void setNormal( Vector n );
   void vertex( Vector v );
+  void setCamera( Vector eye , Vector center , Vector up );
 } /* Utils */
 
 #endif

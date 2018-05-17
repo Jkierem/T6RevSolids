@@ -1,5 +1,4 @@
 #include "Solid.h"
-#include <iostream>
 
 Solid::Solid (){
   this->steps = 10;
@@ -20,7 +19,6 @@ void Solid::read( std::string fileName ){
     sline >> x >> y;
     Vector v(x,y,0);
     this->vertices.push_back(v);
-    std::cout << v.toString() << std::endl;
   }
 }
 
@@ -42,12 +40,22 @@ void Solid::drawInitialPoints(){
   glEnd();
 }
 
+void Solid::drawGeneratedPoints(){
+  glBegin(GL_POINTS);
+  for( auto line : this->gen_vertices ){
+    for( auto vertex : line ){
+      Utils::vertex(vertex);
+    }
+  }
+  glEnd();
+}
+
 void Solid::createTriangles( Line previous_line , Line current_line ){
   //Triangulos que miran hacia abajo
   for (int v = 0; v < previous_line.size()-1 ; v++) {
     Vector c1 = current_line[v].vectorSub(previous_line[v]);
     Vector c2 = previous_line[v+1].vectorSub(previous_line[v]);
-    Vector n = c1.cross(c2);
+    Vector n = c2.cross(c1);
     Utils::setNormal(n.normalize());
     glBegin(GL_TRIANGLES);
       Utils::vertex( current_line[v] );
@@ -67,4 +75,8 @@ void Solid::createTriangles( Line previous_line , Line current_line ){
       Utils::vertex( previous_line[v+1] );
     glEnd();
   }
+}
+
+Vector Solid::getVector(int pos){
+  return this->vertices[pos];
 }

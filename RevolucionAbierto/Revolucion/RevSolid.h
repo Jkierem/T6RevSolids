@@ -3,11 +3,14 @@
 
 #include "../../lib/Solid/Solid.h"
 
-class RevSolid : public Solid {
+enum OriginType { OPEN, CLOSED };
 
+class RevSolid : public Solid {
+private:
+  OriginType type;
 public:
   RevSolid () ;
-  RevSolid (int steps);
+  RevSolid (int steps=10, OriginType type=OPEN );
   virtual ~RevSolid ();
   void generate() override;
 };

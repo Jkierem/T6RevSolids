@@ -25,7 +25,9 @@ public:
   virtual void generate() =0;
   void draw();
   void drawInitialPoints();
+  void drawGeneratedPoints();
   void createTriangles( Line previous_line , Line current_line );
+  Vector getVector(int pos);
 };
 
 #endif

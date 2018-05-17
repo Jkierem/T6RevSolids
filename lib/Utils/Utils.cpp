@@ -25,3 +25,11 @@ void Utils::setNormal( Vector n ){
 void Utils::vertex( Vector v ){
   glVertex3f( v.getX() , v.getY() , v.getZ() );
 }
+
+void Utils::setCamera( Vector eye , Vector center , Vector up ){
+  gluLookAt(
+    eye.getX() , eye.getY() , eye.getZ(),
+    center.getX() , center.getY() , center.getZ(),
+    up.getX() , up.getY() , up.getZ()
+  );
+}
