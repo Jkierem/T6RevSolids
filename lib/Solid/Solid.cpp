@@ -2,10 +2,17 @@
 
 Solid::Solid (){
   this->steps = 10;
+  this->color = Vector(255,255,255);
 }
 
 Solid::Solid ( int steps ){
   this->steps = steps;
+  this->color = Vector(255,255,255);
+}
+
+Solid::Solid ( int steps , Vector color ){
+  this->steps = steps;
+  this->color = color;
 }
 
 Solid::~Solid (){}
@@ -56,6 +63,7 @@ void Solid::createTriangles( Line previous_line , Line current_line ){
     Vector c1 = current_line[v].vectorSub(previous_line[v]);
     Vector c2 = previous_line[v+1].vectorSub(previous_line[v]);
     Vector n = c2.cross(c1);
+    Utils::setColor(this->color);
     Utils::setNormal(n.normalize());
     glBegin(GL_TRIANGLES);
       Utils::vertex( current_line[v] );
@@ -79,4 +87,8 @@ void Solid::createTriangles( Line previous_line , Line current_line ){
 
 Vector Solid::getVector(int pos){
   return this->vertices[pos];
+}
+
+void Solid::setColor( Vector color ){
+  this->color = color;
 }

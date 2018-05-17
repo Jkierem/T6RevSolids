@@ -5,7 +5,8 @@
 #include "../lib/Revolucion/RevSolid.h"
 #include "../lib/Utils/Utils.h"
 
-RevSolid* solid = new RevSolid(20,OPEN);
+Vector c(255,0,0);
+RevSolid* solid = new RevSolid(20,c,OPEN);
 std::string fileName = "../res/curvaAbierta.in";
 
 Vector eye(0,10,50);

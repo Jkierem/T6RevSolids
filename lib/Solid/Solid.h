@@ -16,10 +16,12 @@ protected:
   Line vertices;
   std::vector<Line> gen_vertices;
   int steps;
+  Vector color;
 
 public:
   Solid ();
   Solid ( int steps );
+  Solid ( int steps , Vector color );
   virtual ~Solid ();
   void read( std::string fileName );
   virtual void generate() =0;
@@ -28,6 +30,7 @@ public:
   void drawGeneratedPoints();
   void createTriangles( Line previous_line , Line current_line );
   Vector getVector(int pos);
+  void setColor( Vector color );
 };
 
 #endif

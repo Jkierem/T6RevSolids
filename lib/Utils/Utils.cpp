@@ -18,12 +18,12 @@ void Utils::scale( Vector s ){
   glScalef( s.getX() , s.getY() , s.getZ() );
 }
 
-void Utils::setNormal( Vector n ){
-  glNormal3f( n.getX() , n.getY() , n.getZ() );
+void Utils::setColor( Vector color ){
+  glColor3f( color.getX()/255 , color.getY()/255 , color.getZ()/255 );
 }
 
-void Utils::vertex( Vector v ){
-  glVertex3f( v.getX() , v.getY() , v.getZ() );
+void Utils::setNormal( Vector n ){
+  glNormal3f( n.getX() , n.getY() , n.getZ() );
 }
 
 void Utils::setCamera( Vector eye , Vector center , Vector up ){
@@ -32,6 +32,10 @@ void Utils::setCamera( Vector eye , Vector center , Vector up ){
     center.getX() , center.getY() , center.getZ(),
     up.getX() , up.getY() , up.getZ()
   );
+}
+
+void Utils::vertex( Vector v ){
+  glVertex3f( v.getX() , v.getY() , v.getZ() );
 }
 
 void Utils::printControls(){

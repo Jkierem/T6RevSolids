@@ -13,9 +13,10 @@ namespace Utils {
   void rotate( Vector r );
   void rotate( float angle , Vector axis );
   void scale( Vector s );
+  void setColor( Vector color );
   void setNormal( Vector n );
-  void vertex( Vector v );
   void setCamera( Vector eye , Vector center , Vector up );
+  void vertex( Vector v );
   void printControls();
 } /* Utils */
 

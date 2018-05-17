@@ -9,6 +9,7 @@ private:
 
 public:
   BarSolid();
+  BarSolid( Vector color );
   virtual ~BarSolid();
   void read(std::string solidFile, std::string pathFile);
   void generate() override;

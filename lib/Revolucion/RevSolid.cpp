@@ -5,9 +5,16 @@
 RevSolid::RevSolid (): Solid(){
   this->type = OPEN;
 }
+
 RevSolid::RevSolid (int steps, OriginType type): Solid(steps){
   this->type = type;
 }
+
+RevSolid::RevSolid ( int steps , Vector color , OriginType type )
+:Solid(steps,color){
+  this->type = type;
+}
+
 RevSolid::~RevSolid (){}
 void RevSolid::generate(){
   float angleOfRotation = 360.0/this->steps;

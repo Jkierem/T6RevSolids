@@ -1,6 +1,7 @@
 #include "BarSolid.h"
 
 BarSolid::BarSolid() : Solid(){}
+BarSolid::BarSolid( Vector color ): Solid(1, color){}
 BarSolid::~BarSolid(){}
 
 void BarSolid::read(std::string solidFile, std::string pathFile){
