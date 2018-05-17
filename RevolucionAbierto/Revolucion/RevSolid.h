@@ -1,5 +1,5 @@
 #ifndef __REV__H__
-#define __REV__H__ v
+#define __REV__H__ 
 
 #include "../../lib/Solid/Solid.h"
 
